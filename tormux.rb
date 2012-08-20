@@ -283,7 +283,7 @@ class TorCtl
   def authenticate(cookie = nil)
     puts "authenticating"
     cookie ||= @options[:cookie]
-    send(:send_line, cookie ? "AUTHENTICATE \"#{@cookie}\"" : "AUTHENTICATE")
+    send(:send_line, cookie ? "AUTHENTICATE \"#{cookie}\"" : "AUTHENTICATE")
     case reply = read_line
     when '250 OK' then @authenticated = true
     else raise "Couldn't auth: #{reply}"
